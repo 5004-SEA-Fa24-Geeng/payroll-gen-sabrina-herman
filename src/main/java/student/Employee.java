@@ -23,6 +23,11 @@ public abstract class Employee implements IEmployee {
     }
 
     @Override
+    public String getId() {
+        return id;
+    }
+
+    @Override
     public double getPayRate() {
         return payRate;
     }
@@ -44,6 +49,11 @@ public abstract class Employee implements IEmployee {
     @Override
     public double getPretaxDeductions() {
         return pretaxDeductions;
+    }
+
+    @Override
+    public IPayStub runPayroll(double hoursWorked) {
+        return null;
     }
 
 }

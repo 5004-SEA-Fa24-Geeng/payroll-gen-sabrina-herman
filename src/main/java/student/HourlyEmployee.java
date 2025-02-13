@@ -5,10 +5,11 @@ public class HourlyEmployee extends Employee {
         super(name, id, payRate, ytdEarnings, ytdTaxesPaid, pretaxDeductions);
     }
 
-    @Override
-    public IPayStub runPayroll(double hoursWorked) {
-        return null;
-    }
+    //@Override
+    //public IPayStub runPayroll(double hoursWorked) {
+        //return null;
+    //}
+    //calculate gross pay
 
     @Override
     public String toCSV() {
