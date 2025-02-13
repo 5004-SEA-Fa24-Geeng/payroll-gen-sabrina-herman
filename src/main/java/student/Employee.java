@@ -46,9 +46,4 @@ public abstract class Employee implements IEmployee {
         return pretaxDeductions;
     }
 
-
-    @Override
-    public String toCSV() {
-        return "";
-    }
 }
