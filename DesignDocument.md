@@ -34,6 +34,11 @@ You should feel free to number your brainstorm.
 6. Test that the `Employee` class properly returns `pretaxDeductions` from `getPretaxDeductions()`
 7. Test that the `Employee` class properly converts to a CSV string
 8. Test that the `Employee` class properly runs payroll in runPayroll()
+9. Test that the `PayStub` class properly returns `pay` from `getPay()`
+10. Test that the `PayStub` class properly returns `taxesPaid` from `getTaxesPaid()`
+11. Test that the `PayStub` class properly converts to a CSV string
+12. Test that the `TimeCard` class properly returns `id` from `getEmployeeID()`
+13. Test that the `TimeCard` class properly returns `hoursWorked` from `getHoursWorked()`
 
 
 
