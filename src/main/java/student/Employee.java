@@ -61,12 +61,12 @@ public abstract class Employee implements IEmployee {
         if (hoursWorked < 0) {
             return null;
         }
-        double pay = this.calculateGrossPay(hoursWorked);
-        double netPay = pay - this.pretaxDeductions;
+
+        double netPay = this.calculateGrossPay(hoursWorked) - this.pretaxDeductions;
         double taxes = netPay * .2265;
         netPay = netPay - taxes;
-        ytdEarnings += netPay;
-        ytdTaxesPaid += taxes;
+        this.ytdEarnings += netPay;
+        this.ytdTaxesPaid += taxes;
 
         return new PayStub(this.name, netPay, taxes, this.ytdEarnings, this.ytdTaxesPaid);
 
@@ -74,6 +74,7 @@ public abstract class Employee implements IEmployee {
 
     @Override
     public String toCSV() {
+        // make this less ugly later
         return this.employeeType + "," + this.name + "," + this.id + ","
                 + String.format("%.2f", this.payRate) + ","
                 + String.format("%.2f", this.pretaxDeductions) + ","

@@ -10,7 +10,7 @@ public class PayStub implements IPayStub {
 
     public PayStub(String name, double netPay, double taxesPaid, double ytdEarned, double ytdPaid) {
         this.name = name;
-        this.pay = pay;
+        this.pay = pay; //get rid of it?
         this.netPay = netPay;
         this.taxesPaid = taxesPaid;
         this.ytdEarned = ytdEarned;
