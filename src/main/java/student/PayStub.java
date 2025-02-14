@@ -3,13 +3,15 @@ package student;
 public class PayStub implements IPayStub {
     private String name;
     private double pay;
+    private double netPay;
     private double taxesPaid;
     private double ytdEarned;
     private double ytdPaid;
 
-    public PayStub(String name, double pay, double taxesPaid, double ytdEarned, double ytdPaid) {
+    public PayStub(String name, double netPay, double taxesPaid, double ytdEarned, double ytdPaid) {
         this.name = name;
         this.pay = pay;
+        this.netPay = netPay;
         this.taxesPaid = taxesPaid;
         this.ytdEarned = ytdEarned;
         this.ytdPaid = ytdPaid;
@@ -17,7 +19,7 @@ public class PayStub implements IPayStub {
 
     @Override
     public double getPay() {
-        return pay;
+        return netPay;
     }
 
     @Override
@@ -27,7 +29,7 @@ public class PayStub implements IPayStub {
 
     @Override
     public String toCSV() {
-        return this.name + "," + String.format("%.2f",this.pay) + ","
+        return this.name + "," + String.format("%.2f",this.netPay) + ","
                 + String.format("%.2f",this.taxesPaid) + ","
                 + String.format("%.2f",this.ytdEarned) + ","
                 + String.format("%.2f",this.ytdPaid);

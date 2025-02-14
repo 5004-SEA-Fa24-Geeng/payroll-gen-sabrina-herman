@@ -9,5 +9,8 @@ public class SalaryEmployee extends Employee {
     //public IPayStub runPayroll(double hoursWorked) {
         //return null;
     //}
+    protected double calculateGrossPay(double hoursWorked) {
+        return this.getPayRate() / 24;
+    }
 
 }

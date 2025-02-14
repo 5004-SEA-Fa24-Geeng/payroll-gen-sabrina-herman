@@ -57,7 +57,16 @@ public abstract class Employee implements IEmployee {
 
     @Override
     public IPayStub runPayroll(double hoursWorked) {
-        return null;
+        if (hoursWorked < 0) {
+            return null;
+        }
+        double pay = this.calculateGrossPay(hoursWorked);
+        double netPay = pay - this.pretaxDeductions;
+        double taxes = netPay * .2265;
+        netPay = netPay - taxes;
+
+        return new PayStub(this.name, netPay, taxes, this.ytdEarnings, this.ytdTaxesPaid);
+
     }
 
     @Override
@@ -68,5 +77,6 @@ public abstract class Employee implements IEmployee {
                 + String.format("%.2f",this.ytdEarnings) + ","
                 + String.format("%.2f",this.ytdTaxesPaid);
     }
+    protected abstract double calculateGrossPay(double hoursWorked);
 
 }

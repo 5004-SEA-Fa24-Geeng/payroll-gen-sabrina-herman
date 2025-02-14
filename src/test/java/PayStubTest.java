@@ -10,21 +10,21 @@ class PayStubTest {
 
     @BeforeEach
     void setUp() {
-        payStub = new PayStub("Jane", 30, 2000, 10000, 1000);
+        payStub = new PayStub("Luffy",1102.24,322.76,21102.24,4852.76);
     }
 
     @Test
     void getPay() {
-        assertEquals(30, payStub.getPay());
+        assertEquals(1102.24, payStub.getPay());
     }
 
     @Test
     void getTaxesPaid() {
-        assertEquals(2000, payStub.getTaxesPaid());
+        assertEquals(322.76, payStub.getTaxesPaid());
     }
 
     @Test
     void toCSV() {
-        assertEquals("Jane,30.00,2000.00,10000.00,1000.00", payStub.toCSV());
+        assertEquals("Luffy,1102.24,322.76,21102.24,4852.76", payStub.toCSV());
     }
 }

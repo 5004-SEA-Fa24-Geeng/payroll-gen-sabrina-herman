@@ -11,4 +11,13 @@ public class HourlyEmployee extends Employee {
         //return null;
     //}
     //calculate gross pay
+    protected double calculateGrossPay(double hoursWorked) {
+        double grossPay;
+        if (hoursWorked <= 40) {
+            grossPay = this.getPayRate() * hoursWorked;
+        } else {
+            grossPay = this.getPayRate() * 40 + this.getPayRate() * 1.5 * (hoursWorked - 40);
+        }
+        return grossPay;
+    }
 }
