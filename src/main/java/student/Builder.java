@@ -31,8 +31,8 @@ public final class Builder {
 
         String[] csvStrings = csv.split(",");
 
-        name = csvStrings[0];
-        id = csvStrings[1];
+        name = csvStrings[1];
+        id = csvStrings[2];
 
         if (csvStrings.length != 7) {
             throw new IllegalArgumentException("Invalid CSV format");
