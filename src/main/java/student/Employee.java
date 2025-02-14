@@ -23,7 +23,7 @@ public abstract class Employee implements IEmployee {
     }
 
     @Override
-    public String getId() {
+    public String getID() {
         return id;
     }
 
