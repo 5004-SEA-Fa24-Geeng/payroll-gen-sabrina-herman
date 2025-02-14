@@ -36,6 +36,10 @@ public abstract class Employee implements IEmployee {
         return employeeType;
     }
 
+    public void setEmployeeType(String employeeType) {
+        this.employeeType = employeeType;
+    }
+
     @Override
     public double getYTDEarnings() {
         return ytdEarnings;
@@ -54,6 +58,11 @@ public abstract class Employee implements IEmployee {
     @Override
     public IPayStub runPayroll(double hoursWorked) {
         return null;
+    }
+
+    @Override
+    public String toCSV() {
+        return "";
     }
 
 }
