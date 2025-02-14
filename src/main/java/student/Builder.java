@@ -22,7 +22,38 @@ public final class Builder {
      * @return the employee object
      */
     public static IEmployee buildEmployeeFromCSV(String csv) {
+        double payRate;
+        double ytdEarnings;
+        double ytdTaxes;
+        double preTaxDeductions;
+        String name;
+        String id;
 
+        String[] csvStrings = csv.split(",");
+
+        name = csvStrings[0];
+        id = csvStrings[1];
+
+        if (csvStrings.length != 7) {
+            throw new IllegalArgumentException("Invalid CSV format");
+        }
+
+        try {
+            payRate = Double.parseDouble(csvStrings[3]);
+            ytdEarnings = Double.parseDouble(csvStrings[5]);
+            ytdTaxes = Double.parseDouble(csvStrings[6]);
+            preTaxDeductions = Double.parseDouble(csvStrings[4]);
+        } catch(NumberFormatException e) {
+            throw new IllegalArgumentException("Invalid CSV format");
+        }
+
+        if (csvStrings[0].equals("HOURLY")) {
+            return new HourlyEmployee(name, id, payRate, ytdEarnings, ytdTaxes, preTaxDeductions);
+        }
+
+        if (csvStrings[0].equals("SALARY")) {
+            return new SalaryEmployee(name, id, payRate, ytdEarnings, ytdTaxes, preTaxDeductions);
+        }
         return null;
     }
 
@@ -35,7 +66,20 @@ public final class Builder {
      * @return a TimeCard object
      */
     public static ITimeCard buildTimeCardFromCSV(String csv) {
-    
-        return null;
+        String[] csvStrings = csv.split(",");
+        String id = csvStrings[0];
+        double hoursWorked;
+
+        if (csvStrings.length != 2) {
+            throw new IllegalArgumentException("Invalid CSV format");
+        }
+
+        try {
+            hoursWorked = Double.parseDouble(csvStrings[1]);
+        } catch(NumberFormatException e) {
+            throw new IllegalArgumentException("Invalid CSV format");
+        }
+
+        return new TimeCard(id, hoursWorked);
     }
 }
