@@ -62,7 +62,11 @@ public abstract class Employee implements IEmployee {
 
     @Override
     public String toCSV() {
-        return "";
+        return this.employeeType + "," + this.name + "," + this.id + ","
+                + String.format("%.2f",this.payRate) + ","
+                + String.format("%.2f",this.pretaxDeductions) + ","
+                + String.format("%.2f",this.ytdEarnings) + ","
+                + String.format("%.2f",this.ytdTaxesPaid);
     }
 
 }
