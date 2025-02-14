@@ -64,6 +64,8 @@ public abstract class Employee implements IEmployee {
         double netPay = pay - this.pretaxDeductions;
         double taxes = netPay * .2265;
         netPay = netPay - taxes;
+        ytdEarnings += netPay;
+        ytdTaxesPaid += taxes;
 
         return new PayStub(this.name, netPay, taxes, this.ytdEarnings, this.ytdTaxesPaid);
 
