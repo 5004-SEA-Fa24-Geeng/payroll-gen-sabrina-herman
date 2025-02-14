@@ -8,7 +8,8 @@ public abstract class Employee implements IEmployee {
     private double ytdEarnings;
     private double ytdTaxesPaid;
     private double pretaxDeductions;
-    public Employee(String name, String id, double payRate, double ytdEarnings, double ytdTaxesPaid, double pretaxDeductions) {
+    public Employee(String name, String id, double payRate,
+                    double ytdEarnings, double ytdTaxesPaid, double pretaxDeductions) {
         this.name = name;
         this.id = id;
         this.payRate = payRate;
@@ -74,10 +75,10 @@ public abstract class Employee implements IEmployee {
     @Override
     public String toCSV() {
         return this.employeeType + "," + this.name + "," + this.id + ","
-                + String.format("%.2f",this.payRate) + ","
-                + String.format("%.2f",this.pretaxDeductions) + ","
-                + String.format("%.2f",this.ytdEarnings) + ","
-                + String.format("%.2f",this.ytdTaxesPaid);
+                + String.format("%.2f", this.payRate) + ","
+                + String.format("%.2f", this.pretaxDeductions) + ","
+                + String.format("%.2f", this.ytdEarnings) + ","
+                + String.format("%.2f", this.ytdTaxesPaid);
     }
     protected abstract double calculateGrossPay(double hoursWorked);
 

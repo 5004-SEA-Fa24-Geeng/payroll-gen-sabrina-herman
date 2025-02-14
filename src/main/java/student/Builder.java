@@ -43,7 +43,7 @@ public final class Builder {
             ytdEarnings = Double.parseDouble(csvStrings[5]);
             ytdTaxes = Double.parseDouble(csvStrings[6]);
             preTaxDeductions = Double.parseDouble(csvStrings[4]);
-        } catch(NumberFormatException e) {
+        } catch (NumberFormatException e) {
             throw new IllegalArgumentException("Invalid CSV format");
         }
 
@@ -76,7 +76,7 @@ public final class Builder {
 
         try {
             hoursWorked = Double.parseDouble(csvStrings[1]);
-        } catch(NumberFormatException e) {
+        } catch (NumberFormatException e) {
             throw new IllegalArgumentException("Invalid CSV format");
         }
 
