@@ -18,6 +18,8 @@ public abstract class Employee implements IEmployee {
     private double ytdTaxesPaid;
     /** The name of the Employee. */
     private double pretaxDeductions;
+    /** Tax rate constant */
+    private final double TAX_RATE = .2265;
 
     /**
      * The Employee constructor.
@@ -130,8 +132,6 @@ public abstract class Employee implements IEmployee {
         // Pay - preTaxDeductions.
         double netPay = this.calculateGrossPay(hoursWorked) - this.pretaxDeductions;
 
-        // Tax rate constant
-        double TAX_RATE = .2265;
         // Get the amount of taxes.
         double taxes = netPay * TAX_RATE;
 
