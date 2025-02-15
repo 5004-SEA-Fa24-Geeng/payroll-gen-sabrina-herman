@@ -63,17 +63,14 @@ public abstract class Employee implements IEmployee {
         if (hoursWorked < 0) {
             return null;
         }
-        BigDecimal taxRate = new BigDecimal("0.2265");
 
-        BigDecimal pay = BigDecimal.valueOf(calculateGrossPay(hoursWorked));
-        BigDecimal preTaxDeductionBD = BigDecimal.valueOf(pretaxDeductions);
-        BigDecimal netPay = pay.subtract(preTaxDeductionBD);
-        BigDecimal taxes = netPay.multiply(taxRate);
-        BigDecimal newNetPay = netPay.subtract(taxes);
-        BigDecimal ytdEarningsBD = BigDecimal.valueOf(this.ytdEarnings).add(newNetPay);
-        BigDecimal ytdTaxesPaidBD = BigDecimal.valueOf(this.ytdTaxesPaid).add(taxes);
+        double netPay = this.calculateGrossPay(hoursWorked) - this.pretaxDeductions;
+        double taxes = netPay * .2265;
+        netPay -= taxes;
+        this.ytdEarnings += netPay;
+        this.ytdTaxesPaid += taxes;
 
-        return new PayStub(this.name, newNetPay.doubleValue(), taxes.doubleValue(), ytdEarningsBD.doubleValue(), ytdTaxesPaidBD.doubleValue());
+        return new PayStub(this.name, netPay, taxes, this.ytdEarnings, this.ytdTaxesPaid);
 
     }
 
