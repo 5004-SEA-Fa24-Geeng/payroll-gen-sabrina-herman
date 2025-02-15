@@ -29,9 +29,7 @@ public class PayStub implements IPayStub {
 
     @Override
     public String toCSV() {
-        return this.name + "," + String.format("%.2f",this.netPay) + ","
-                + String.format("%.2f",this.taxesPaid) + ","
-                + String.format("%.2f",this.ytdEarned) + ","
-                + String.format("%.2f",this.ytdPaid);
+        return String.format("%s,%.2f,%.2f,%.2f,%.2f",
+                this.name,this.netPay,this.taxesPaid,this.ytdEarned,this.ytdPaid);
     }
 }
