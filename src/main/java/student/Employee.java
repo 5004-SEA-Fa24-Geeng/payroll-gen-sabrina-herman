@@ -130,8 +130,10 @@ public abstract class Employee implements IEmployee {
         // Pay - preTaxDeductions.
         double netPay = this.calculateGrossPay(hoursWorked) - this.pretaxDeductions;
 
+        // Tax rate constant
+        double TAXRATE = .2265;
         // Get the amount of taxes.
-        double taxes = netPay * .2265;
+        double taxes = netPay * TAXRATE;
 
         // Subtract taxes from the netPay.
         netPay -= taxes;
