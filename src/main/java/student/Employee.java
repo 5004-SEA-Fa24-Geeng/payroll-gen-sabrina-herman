@@ -18,7 +18,7 @@ public abstract class Employee implements IEmployee {
     private double ytdTaxesPaid;
     /** The name of the Employee. */
     private double pretaxDeductions;
-    /** Tax rate constant */
+    /** Tax rate constant. */
     private static final double TAX_RATE = .2265;
 
     /**
