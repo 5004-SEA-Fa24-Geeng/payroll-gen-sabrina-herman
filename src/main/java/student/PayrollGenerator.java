@@ -72,7 +72,7 @@ public final class PayrollGenerator {
         for (ITimeCard timeCard : timeCardList) {
             for (IEmployee employee : employees) {
                 if (timeCard.getEmployeeID().equals(employee.getID())) {
-                    IPayStub newPayStub = employee.runPayroll(timeCard.getHoursWorked());
+                    IPayStub newPayStub = employee.runPayroll(timeCard.getHoursWorked()); //fix maybe
                     if (newPayStub != null && timeCard.getHoursWorked() >= 0) {
                         payStubs.add(newPayStub);
                     }

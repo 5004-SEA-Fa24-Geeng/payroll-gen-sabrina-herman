@@ -1,5 +1,7 @@
 package student;
 
+import java.math.BigDecimal;
+
 public abstract class Employee implements IEmployee {
     private String name;
     private String id;
@@ -61,14 +63,14 @@ public abstract class Employee implements IEmployee {
         if (hoursWorked < 0) {
             return null;
         }
+        BigDecimal taxRate = new BigDecimal(.2265);
+        BigDecimal netPay = BigDecimal.valueOf(this.calculateGrossPay(hoursWorked) - this.pretaxDeductions);
+        BigDecimal taxes = netPay.multiply(taxRate);
+        netPay = netPay.subtract(taxes);
+        BigDecimal ytdEarningsBD = BigDecimal.valueOf(this.ytdEarnings).add(netPay);
+        BigDecimal ytdTaxesPaidBD = BigDecimal.valueOf(this.ytdTaxesPaid).add(taxes);
 
-        double netPay = this.calculateGrossPay(hoursWorked) - this.pretaxDeductions;
-        double taxes = netPay * .2265;
-        netPay = netPay - taxes;
-        this.ytdEarnings += netPay;
-        this.ytdTaxesPaid += taxes;
-
-        return new PayStub(this.name, netPay, taxes, this.ytdEarnings, this.ytdTaxesPaid);
+        return new PayStub(this.name, netPay.doubleValue(), taxes.doubleValue(), ytdEarningsBD.doubleValue(), ytdTaxesPaidBD.doubleValue());
 
     }
 
