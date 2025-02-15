@@ -68,11 +68,15 @@ public final class PayrollGenerator {
         // to the time card. Also remember if the value is negative, you just skip that payStub
         // as it is invalid, but if is 0, you still generate a paystub, but the amount is 0.
 
-        //YOUR CODE HERE
+        // Loop through timeCardList
         for (ITimeCard timeCard : timeCardList) {
+            // Loop through the list of employees
             for (IEmployee employee : employees) {
+                // Check for an employee with a matching ID. If not, it will not be added to the payStubs list.
                 if (timeCard.getEmployeeID().equals(employee.getID())) {
+                    // Found match, so make a new PayStub to add to the payStubs list
                     IPayStub newPayStub = employee.runPayroll(timeCard.getHoursWorked()); //fix maybe
+                    // Check for if the hours worked is negative. If not, add it to the payStubs list
                     if (newPayStub != null && timeCard.getHoursWorked() >= 0) {
                         payStubs.add(newPayStub);
                     }

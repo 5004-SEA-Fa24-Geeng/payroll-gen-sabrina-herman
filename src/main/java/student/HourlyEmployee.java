@@ -5,7 +5,7 @@ package student;
  */
 public class HourlyEmployee extends Employee {
     /**
-     * The Constructor for HourlyEmployee
+     * The Constructor for HourlyEmployee.
      * @param name The name of the Employee.
      * @param id The id of the Employee.
      * @param payRate The pay rate of the Employee.
