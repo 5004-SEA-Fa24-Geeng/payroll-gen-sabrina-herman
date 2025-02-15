@@ -66,7 +66,8 @@ public abstract class Employee implements IEmployee {
         BigDecimal taxRate = new BigDecimal("0.2265");
 
         BigDecimal pay = BigDecimal.valueOf(calculateGrossPay(hoursWorked));
-        BigDecimal netPay = pay.subtract(BigDecimal.valueOf(pretaxDeductions));
+        BigDecimal preTaxDeductionBD = BigDecimal.valueOf(pretaxDeductions);
+        BigDecimal netPay = pay.subtract(preTaxDeductionBD);
         BigDecimal taxes = netPay.multiply(taxRate);
         BigDecimal newNetPay = netPay.subtract(taxes);
         BigDecimal ytdEarningsBD = BigDecimal.valueOf(this.ytdEarnings).add(newNetPay);
