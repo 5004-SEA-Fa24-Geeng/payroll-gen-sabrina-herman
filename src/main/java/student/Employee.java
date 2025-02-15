@@ -63,7 +63,7 @@ public abstract class Employee implements IEmployee {
         if (hoursWorked < 0) {
             return null;
         }
-        BigDecimal taxRate = new BigDecimal(.2265);
+        BigDecimal taxRate = new BigDecimal("0.2265");
 
         BigDecimal netPay = BigDecimal.valueOf(this.calculateGrossPay(hoursWorked) - this.pretaxDeductions);
         BigDecimal taxes = netPay.multiply(taxRate);
