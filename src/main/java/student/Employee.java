@@ -64,13 +64,14 @@ public abstract class Employee implements IEmployee {
             return null;
         }
         BigDecimal taxRate = new BigDecimal(.2265);
+
         BigDecimal netPay = BigDecimal.valueOf(this.calculateGrossPay(hoursWorked) - this.pretaxDeductions);
         BigDecimal taxes = netPay.multiply(taxRate);
-        netPay = netPay.subtract(taxes);
-        BigDecimal ytdEarningsBD = BigDecimal.valueOf(this.ytdEarnings).add(netPay);
+        BigDecimal newNetPay = netPay.subtract(taxes);
+        BigDecimal ytdEarningsBD = BigDecimal.valueOf(this.ytdEarnings).add(newNetPay);
         BigDecimal ytdTaxesPaidBD = BigDecimal.valueOf(this.ytdTaxesPaid).add(taxes);
 
-        return new PayStub(this.name, netPay.doubleValue(), taxes.doubleValue(), ytdEarningsBD.doubleValue(), ytdTaxesPaidBD.doubleValue());
+        return new PayStub(this.name, newNetPay.doubleValue(), taxes.doubleValue(), ytdEarningsBD.doubleValue(), ytdTaxesPaidBD.doubleValue());
 
     }
 
